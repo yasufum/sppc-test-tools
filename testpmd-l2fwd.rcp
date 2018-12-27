@@ -1,0 +1,17 @@
+sec 1; add vhost:2
+sec 1; add vhost:3
+sec 1; add ring:0
+sec 1; add ring:1
+
+sec 2; add vhost:4
+sec 2; add vhost:5
+sec 2; add ring:0
+sec 2; add ring:1
+
+sec 1; patch ring:0 vhost:2
+sec 1; patch vhost:3 ring:1
+sec 2; patch ring:1 vhost:4
+sec 2; patch vhost:5 ring:0
+
+sec 1; forward
+sec 2; forward
